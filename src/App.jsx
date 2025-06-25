@@ -1,7 +1,14 @@
+import { Route, Routes } from "react-router-dom"
+import Login from "./Components/Login"
+import Tracker from "./Components/Tracker"
+
 function App() {
 
   return (
-    <h1 className="underline text-lg">Hello coders r u reday to code </h1>
+    <Routes>
+      <Route path="/"  element={<Login/>}/>
+      <Route path="/tracker" element={<Tracker />}/>
+    </Routes>
   )
 }
 
