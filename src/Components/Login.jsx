@@ -1,19 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
     const [user,setUser] = useState("");
     const [balance,setBalance] = useState("");
 
+    const navigate = useNavigate();
+    
     const EnterBtn = (event) =>{
         event.preventDefault();
-        const userData = {
-            user,
-            balance
-        }
+
+        const userData =  {
+            user :user,
+            balance : parseFloat(balance)
+        };
+
         localStorage.setItem("user-data",JSON.stringify(userData));
         console.log(user);
         console.log(balance);
+        navigate("/tracker");
     }
 
     return (
