@@ -1,7 +1,6 @@
 import { Route, Routes,Navigate } from "react-router-dom"
 import Login from "./Components/Login"
 import Tracker from "./Components/Tracker"
-import { useEffect, useState } from "react";
 
 function App() {
 
