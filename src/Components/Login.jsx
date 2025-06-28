@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setUserP }) {
 
     const [user,setUser] = useState("");
     const [balance,setBalance] = useState("");
@@ -19,7 +19,7 @@ function Login() {
         localStorage.setItem("user-data",JSON.stringify(userData));
         console.log(user);
         console.log(balance);
-        navigate("/tracker");
+        setUserP(true);
     }
 
     return (
@@ -37,6 +37,7 @@ function Login() {
                      className="border p-2 rounded text-lg " 
                      value={user} 
                      onChange={(e) => setUser(e.target.value)}
+                     required
                     />
 
                     <input type="number" 
@@ -44,6 +45,7 @@ function Login() {
                      className="border p-2 rounded text-lg "
                      value={balance}
                      onChange={(e) => setBalance(e.target.value)}
+                     required
                      />
 
                     <button 

@@ -1,20 +1,30 @@
-import { Route, Routes,Navigate } from "react-router-dom"
+import { Route, Routes,useNavigate } from "react-router-dom"
 import Login from "./Components/Login"
 import Tracker from "./Components/Tracker"
+import { useEffect, useState } from "react";
 
 function App() {
 
-    const userP = JSON.parse(localStorage.getItem("user-data"));
-    
+    const [userP,setUserP] = useState(!!localStorage.getItem("user-data"));
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+      if(userP) {
+        navigate('/tracker');
+      } else {
+        navigate('/');
+      }
+    }, [userP]);
+
   return (
     <Routes>
       <Route
         path="/"
-        element={userP ? <Navigate to="/tracker" /> : <Login />}
+        element={<Login setUserP={ setUserP } />}
       />
       <Route
         path="/tracker"
-        element={userP ? <Tracker /> : <Navigate to="/" />}
+        element={<Tracker setUserP={ setUserP }/>}
       />
     </Routes>
   )
