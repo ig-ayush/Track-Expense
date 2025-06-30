@@ -6,9 +6,8 @@ function Tracker({ setUserP }) {
     }
     return(
         <main>
-        <h1>Tracker</h1>
-        
-        <button onClick={logout}>Log Out</button>
+            <h1>Tracker</h1>
+            <button onClick={logout}>Log Out</button>
         </main>
     )
 }
