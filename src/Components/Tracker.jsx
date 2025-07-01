@@ -1,13 +1,12 @@
+import { Details } from "./Tracker-component/Details";
+
 function Tracker({ setUserP }) {
 
-    const logout = ()=>{
-        localStorage.removeItem("user-data");
-        setUserP(false);
-    }
     return(
-        <main>
-            <h1>Tracker</h1>
-            <button onClick={logout}>Log Out</button>
+        <main className=" w-screen h-screen flex justify-center items-center">
+            <div id="container" className="relative  w-[80ch] h-[90vh] border rounded-2xl flex flex-col items-center p-8">
+                <Details />                
+            </div>
         </main>
     )
 }
