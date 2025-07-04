@@ -24,7 +24,7 @@ function App() {
       />
       <Route
         path="/tracker"
-        element={<Tracker setUserP={ setUserP }/>}
+        element={userP ? <Tracker setUserP={ setUserP }/> : <Login setUserP={ setUserP }/>}
       />
     </Routes>
   )
