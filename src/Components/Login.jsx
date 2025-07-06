@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Login({ setUserP }) {
 
     const [user,setUser] = useState("");
     const [balance,setBalance] = useState("");
 
-    const navigate = useNavigate();
     
     const EnterBtn = (event) =>{
         event.preventDefault();
@@ -17,8 +15,6 @@ function Login({ setUserP }) {
         };
 
         localStorage.setItem("user-data",JSON.stringify(userData));
-        console.log(user);
-        console.log(balance);
         setUserP(true);
     }
 
