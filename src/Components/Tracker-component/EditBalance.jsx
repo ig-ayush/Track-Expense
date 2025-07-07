@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function EditBalance({userData, setUserData}) {
     const [showForm, setShowForm] = useState("");
@@ -23,7 +23,7 @@ export function EditBalance({userData, setUserData}) {
     
     const editingBalance = (event) =>{
         event.preventDefault();
-        if(!isNaN(addBal) && editBal > 0) {
+        if(!isNaN(editBal) && editBal > 0) {
     
             const update = {
                 ...userData,
