@@ -1,14 +1,14 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function Details({ setUserP }) {
-    const userData = JSON.parse(localStorage.getItem("user-data"));
+export function Details({ setUserP, userData, setUserData }) {
+    
     const navigate = useNavigate();
 
     const logout = () =>{
         localStorage.removeItem("user-data");
        setUserP(false);
        navigate("/")
-
     }
     return (
         <main className="w-full h-fit flex flex-col gap-5">

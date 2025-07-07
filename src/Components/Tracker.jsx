@@ -2,17 +2,24 @@ import { Details } from "./Tracker-component/Details";
 import { EditBalance  } from "./Tracker-component/EditBalance";
 import { AddExpence } from "./Tracker-component/AddExpence";
 import { TotalExp } from "./Tracker-component/TotalExp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Tracker({ setUserP }) {
 
     const [choises, setChoises] = useState("");
+    const [userData, setUserData] = useState(
+        JSON.parse(localStorage.getItem("user-data"))
+    )
 
+    useEffect(()=>{
+        localStorage.setItem("user-data", JSON.stringify(userData));
+    },[userData]);
+    
     function diaplayChoies() {
 
         switch(choises) {
             case "Edit-Balance" :
-                return <EditBalance />
+                return <EditBalance userData={userData} setUserData={setUserData} />
             case "Add-Expence" :
                 return <AddExpence />
             case "Total-Expence" :
@@ -25,7 +32,7 @@ function Tracker({ setUserP }) {
         <main className=" w-screen h-screen flex justify-center items-center">
             <div id="container" className="relative  w-[60ch] h-[90vh] border rounded-2xl flex flex-col items-center p-8 gap-3">
                 
-                <Details setUserP={ setUserP }/>                
+                <Details setUserP={ setUserP } userData={userData} setUserData={setUserData}/>                
 
             <div id="choises" className="mt-8 w-full h-fit">
                 <ul className="flex justify-between ">
