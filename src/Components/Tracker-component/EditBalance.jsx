@@ -20,9 +20,21 @@ export function EditBalance({userData, setUserData}) {
             alert("Enter valid amount");
         }
     }
-
-    const editingBalance = () =>{
-
+    
+    const editingBalance = (event) =>{
+        event.preventDefault();
+        if(!isNaN(addBal) && editBal > 0) {
+    
+            const update = {
+                ...userData,
+                balance :  Number(editBal)
+            }
+            setUserData(update);
+    
+            alert("amount Edited");
+        } else {
+            alert("Enter valid amount");
+        }
     }
 
     return (
@@ -58,8 +70,10 @@ export function EditBalance({userData, setUserData}) {
 
               {  showForm == "edit" && <div id="edit-balance" className="w-max h-max"
               data-aos = "fade-right" data-aos-duration = "1500">
-                    <form className="flex flex-col items-center gap-5 ">
-                        <input type="number" className="border p-1.5" />
+                    <form className="flex flex-col items-center gap-5 "
+                    onSubmit={editingBalance}>
+                        <input type="number" className="border p-1.5"
+                        onChange={(e)=> setEditBal(e.target.value)} />
                         <button
                          className="w-fit border p-3 text-lg font-semibold rounded-lg bg-transparent hover:font-semibold transition-all duration-300"
                           >Edit</button>
