@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function EditBalance() {
-    const userData = JSON.parse(localStorage.getItem("user-data"));
+export function EditBalance({userData, setUserData}) {
     const [showForm, setShowForm] = useState("");
-    const [addBal, setAddBal] = useState(null);
-    const [editBal, setEditBal] = useState(null);
+    const [addBal, setAddBal] = useState(0);
+    const [editBal, setEditBal] = useState(0);
     
-    const addingBalance = (event) =>{
+      const addingBalance = (event) =>{
         event.preventDefault();
-        console.log(first)
+        if(!isNaN(addBal) && addBal > 0) {
+
+            const update = {
+                ...userData,
+                balance :  userData.balance + Number(addBal)
+            }
+            setUserData(update);
+
+            alert("amount added");
+        } else {
+            alert("Enter valid amount");
+        }
     }
 
     const editingBalance = () =>{
@@ -38,7 +48,8 @@ export function EditBalance() {
                     <form className="flex flex-col items-center gap-5 "
                     onSubmit={addingBalance}
                     >
-                        <input type="number" className="border p-1.5" />
+                        <input type="number" className="border p-1.5" 
+                        onChange={(e) => setAddBal(e.target.value)}/>
                         <button
                          className="w-fit border p-3 text-lg font-semibold rounded-lg bg-transparent hover:font-semibold transition-all duration-300"
                           >Add</button>
