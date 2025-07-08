@@ -21,7 +21,7 @@ function Tracker({ setUserP }) {
             case "Edit-Balance" :
                 return <EditBalance userData={userData} setUserData={setUserData} />
             case "Add-Expence" :
-                return <AddExpence />
+                return <AddExpence userData={userData} setUserData={setUserData} />
             case "Total-Expence" :
                 return <TotalExp />
             default : 
