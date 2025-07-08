@@ -21,7 +21,7 @@ function Tracker({ setUserP }) {
             case "Edit-Balance" :
                 return <EditBalance userData={userData} setUserData={setUserData} />
             case "Add-Expence" :
-                return <AddExpence />
+                return <AddExpence userData={userData} setUserData={setUserData} />
             case "Total-Expence" :
                 return <TotalExp />
             default : 
@@ -30,7 +30,7 @@ function Tracker({ setUserP }) {
     }
     return(
         <main className=" w-screen h-screen flex justify-center items-center">
-            <div id="container" className="relative  w-[60ch] h-auto border rounded-2xl flex flex-col items-center p-8 gap-3">
+            <div id="container" className="relative  w-[60ch] max-h-[90vh] border rounded-2xl flex flex-col items-center p-8 gap-3">
                 
                 <Details setUserP={ setUserP } userData={userData} setUserData={setUserData}/>                
 
