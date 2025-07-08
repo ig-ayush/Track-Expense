@@ -12,9 +12,11 @@ export function AddExpence() {
                 >Add</button>
             </form>
 
-            <ul id="expence-list">
-                <li>ok</li>
-            </ul>
+           <div className="overflow-y-auto max-h-[180px] border rounded w-full p-2">
+                <ul className="list-decimal p-1.5 overflow-y-scroll max-h-[150px] w-auto">
+                    <li>Hello</li>
+                </ul>
+           </div>
         </main>
     )
 }
