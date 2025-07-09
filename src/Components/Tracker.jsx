@@ -23,7 +23,7 @@ function Tracker({ setUserP }) {
             case "Add-Expence" :
                 return <AddExpence userData={userData} setUserData={setUserData} />
             case "Total-Expence" :
-                return <TotalExp />
+                return <TotalExp userData={userData} />
             default : 
             return null;
         }        
