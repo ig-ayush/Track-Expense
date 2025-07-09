@@ -26,7 +26,7 @@ export function Details({ setUserP, userData, setUserData }) {
             <div id="balance-con" className="flex justify-center items-center border p-5">
                 <div id="balance">
                     <div id="amount" className="flex flex-col items-center gap-3">
-                        <h1 className="text-6xl font-semibold">{userData.balance}</h1>
+                        <h1 className="text-6xl font-semibold">₹{userData.balance}</h1>
                         <h2 className="text-sm text-green-500">Your Balance</h2>
                     </div>
                 </div>

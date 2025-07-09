@@ -5,30 +5,46 @@ export function AddExpence({userData, setUserData}) {
     const [expenceName, setExpenceName] = useState("");
     const [expenceAmount, setExpenceAmount] = useState("");
 
+ 
     const addExpence = (event) =>{
         event.preventDefault();
         console.log(expenceName);
         console.log(expenceAmount);
         
-        const newExpence = {
-            exName : expenceName,
-            exAmount : expenceAmount,
-        };
+        if(expenceAmount > 0) {
 
-        const updateExpence = [
-            ...(userData.expences || []),
-            newExpence
-        ];
-
-        const updateData = {
-            ...userData,
-            expences : updateExpence
-        };
-
-        setUserData(updateData);
+            const newExpence = {
+                id: Date.now(),
+                exName : expenceName.trim(),
+                exAmount : expenceAmount,
+            };
+            
+            const updateExpence = [
+                ...(userData.expences || []),
+                newExpence
+            ];
+            
+            const updateData = {
+                ...userData,
+                expences : updateExpence
+            };
+            
+            setUserData(updateData);
+        } else {
+            alert("Enter valid amount")
+        }
     }
+
+    const deleteExpence = (expence) =>{
+        const filterItem = userData.expences.filter((exp) => exp.id !== expence)
+        setUserData({
+            ...userData,
+            expences : filterItem
+        })
+    }
+
     return(
-        <main className="w-auto h-auto flex flex-col gap-5">
+        <main className="w-full h-auto flex flex-col gap-5">
             <h1 className="text-lg font-extralight text-center">Add Your Expence</h1>
             <form className="flex flex-col items-center gap-4"
             onSubmit={addExpence}
@@ -48,9 +64,25 @@ export function AddExpence({userData, setUserData}) {
                 >Add</button>
             </form>
 
-           <div className="overflow-y-auto max-h-[180px] border rounded w-full p-2">
-                <ul className="list-decimal p-1.5 overflow-y-scroll max-h-[150px] w-auto">
-                    <li>Hello</li>
+           <div className="overflow-y-auto max-h-[180px] border rounded w-[300px] p-2  ">
+                <ul className="list-decimal p-1.5 overflow-y-scroll max-h-[150px] w-full flex flex-col gap-5">
+                    {   
+                        userData.expences && userData.expences.length > 0 ? (
+                        
+                            userData.expences.map((expence,index)=>(
+                            <li className="flex justify-between text-xl font-extralight p-1" key={index}>
+                                <span>{expence.exName}</span>
+                                <span>₹{expence.exAmount}</span>
+                                <span className="text-red-600 hover:text-red-500 cursor-pointer"
+                                onClick={() => deleteExpence(expence.id)}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </span>
+                         </li>
+                        ))
+                        ) : (
+                            <h1>No Items</h1>
+                        )
+                    }
                 </ul>
            </div>
         </main>
