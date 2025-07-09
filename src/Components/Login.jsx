@@ -9,13 +9,17 @@ function Login({ setUserP }) {
     const EnterBtn = (event) =>{
         event.preventDefault();
 
-        const userData =  {
-            user :user,
-            balance : parseFloat(balance)
-        };
-
-        localStorage.setItem("user-data",JSON.stringify(userData));
-        setUserP(true);
+        if(balance < 50) {
+            alert("Your balance have to atlest 50");
+        } else {
+            const userData =  {
+                user :user,
+                balance : parseFloat(balance)
+            };
+            
+            localStorage.setItem("user-data",JSON.stringify(userData));
+            setUserP(true);
+        }
     }
 
     return (

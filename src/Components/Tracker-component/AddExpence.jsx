@@ -23,13 +23,19 @@ export function AddExpence({userData, setUserData}) {
                 ...(userData.expences || []),
                 newExpence
             ];
-            
-            const updateData = {
-                ...userData,
-                expences : updateExpence
-            };
-            
-            setUserData(updateData);
+            const presentBal = userData.balance - Number(expenceAmount);
+            if(presentBal < 50) {
+                alert("If u add this Expence your balance will be low");
+            }else {
+
+                const updateData = {
+                    ...userData,
+                    balance: userData.balance - Number(expenceAmount),
+                    expences : updateExpence
+                };
+                
+                setUserData(updateData);
+            }
         } else {
             alert("Enter valid amount")
         }
