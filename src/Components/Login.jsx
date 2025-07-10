@@ -1,16 +1,18 @@
 import { useState } from "react";
+import { useAlert } from "./AlertProvider";
 
 function Login({ setUserP }) {
 
     const [user,setUser] = useState("");
     const [balance,setBalance] = useState("");
+    const { showAlert } = useAlert();
 
     
     const EnterBtn = (event) =>{
         event.preventDefault();
 
         if(balance < 50) {
-            alert("Your balance have to atlest 50");
+            showAlert("Your balance have to atlest 50");
         } else {
             const userData =  {
                 user :user,
