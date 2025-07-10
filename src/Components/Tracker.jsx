@@ -40,7 +40,7 @@ function Tracker({ setUserP }) {
                         <button className={`cursor-pointer w-full p-3 sm:p-2 text-sm sm:text-base rounded-lg border transition-all duration-200 ${
                             choises === "Edit-Balance" 
                                 ? "bg-blue-500 text-white border-blue-500" 
-                                : "bg-transparent hover:bg-gray-100 border-gray-300"
+                                : "bg-transparent hover:bg-gray-100 hover:text-black border-gray-300"
                         }`}
                         onClick={()=> setChoises("Edit-Balance")}
                         >
@@ -51,7 +51,7 @@ function Tracker({ setUserP }) {
                         <button className={`cursor-pointer w-full p-3 sm:p-2 text-sm sm:text-base rounded-lg border transition-all duration-200 ${
                             choises === "Add-Expence" 
                                 ? "bg-blue-500 text-white border-blue-500" 
-                                : "bg-transparent hover:bg-gray-100 border-gray-300"
+                                : "bg-transparent hover:bg-gray-100 hover:text-black border-gray-300 "
                         }`}
                         onClick={()=> setChoises("Add-Expence")}
                         >
@@ -62,7 +62,7 @@ function Tracker({ setUserP }) {
                         <button className={`cursor-pointer w-full p-3 sm:p-2 text-sm sm:text-base rounded-lg border transition-all duration-200 ${
                             choises === "Total-Expence" 
                                 ? "bg-blue-500 text-white border-blue-500" 
-                                : "bg-transparent hover:bg-gray-100 border-gray-300"
+                                : "bg-transparent hover:bg-gray-100 hover:text-black border-gray-300"
                         }`}
                         onClick={()=> setChoises("Total-Expence")}
                         >

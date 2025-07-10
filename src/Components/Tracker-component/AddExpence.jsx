@@ -72,7 +72,7 @@ export function AddExpence({userData, setUserData}) {
                  required
                  />
                  <button
-                    className="w-full max-w-xs border p-3 sm:p-2.5 text-base sm:text-lg font-semibold rounded-lg bg-transparent hover:bg-gray-100 hover:font-semibold transition-all duration-300"
+                    className="w-full max-w-xs border p-3 sm:p-2.5 text-base sm:text-lg font-semibold rounded-lg bg-transparent hover:bg-gray-100  hover:font-semibold hover:text-black transition-all duration-300"
                 >Add</button>
             </form>
 

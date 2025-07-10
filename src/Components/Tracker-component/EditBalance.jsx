@@ -45,7 +45,7 @@ export function EditBalance({userData, setUserData}) {
                  className={`min-w-[120px] border p-3 rounded-lg transition-all duration-300 ${
                     showForm === "add" 
                         ? "bg-blue-500 text-white border-blue-500 font-semibold" 
-                        : "bg-transparent hover:bg-gray-100 hover:font-semibold border-gray-300"
+                        : "bg-transparent hover:bg-gray-100 hover:font-semibold border-gray-300 hover:text-black"
                  }`}
                  onClick={()=> setShowForm("add")}
                  >Add Balance
@@ -54,7 +54,7 @@ export function EditBalance({userData, setUserData}) {
                  className={`min-w-[120px] border p-3 rounded-lg transition-all duration-300 ${
                     showForm === "edit" 
                         ? "bg-blue-500 text-white border-blue-500 font-semibold" 
-                        : "bg-transparent hover:bg-gray-100 hover:font-semibold border-gray-300"
+                        : "bg-transparent hover:bg-gray-100 hover:font-semibold border-gray-300 hover:text-black"
                  }`}
                  onClick={()=>  setShowForm("edit")}
                  >
