@@ -60,7 +60,7 @@ function Tracker({ setUserP }) {
                 </ul>
             </div>
 
-            <div id="display-comp" className="w-auto h-fit m-5">
+            <div id="display-comp" className="w-full h-fit m-5">
                 {diaplayChoies()}
             </div>
             </div>

@@ -50,7 +50,7 @@ export function AddExpence({userData, setUserData}) {
     }
 
     return(
-        <main className="w-full h-auto flex flex-col gap-5">
+        <main className="w-full h-auto flex flex-col items-center gap-5">
             <h1 className="text-lg font-extralight text-center">Add Your Expence</h1>
             <form className="flex flex-col items-center gap-4"
             onSubmit={addExpence}
