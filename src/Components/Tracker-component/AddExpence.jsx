@@ -1,9 +1,11 @@
 import {  useState } from "react"
+import { useAlert } from "../AlertProvider";
 
 export function AddExpence({userData, setUserData}) {
 
     const [expenceName, setExpenceName] = useState("");
     const [expenceAmount, setExpenceAmount] = useState("");
+    const { showAlert } = useAlert();
 
  
     const addExpence = (event) =>{
@@ -25,7 +27,7 @@ export function AddExpence({userData, setUserData}) {
             ];
             const presentBal = userData.balance - Number(expenceAmount);
             if(presentBal < 50) {
-                alert("If u add this Expence your balance will be low");
+                showAlert("If u add this Expence your balance will be low");
             }else {
 
                 const updateData = {
@@ -39,7 +41,7 @@ export function AddExpence({userData, setUserData}) {
                 setExpenceAmount("");
             }
         } else {
-            alert("Enter valid amount")
+            showAlert("Enter valid amount")
         }
     }
 
