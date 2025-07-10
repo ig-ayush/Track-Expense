@@ -12,12 +12,12 @@ export function Details({ setUserP, userData, setUserData }) {
     return (
         <main className="w-full h-fit flex flex-col gap-3 sm:gap-5">
 
-            <div id="user-name-logout" className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-lg sm:text-xl gap-3 sm:gap-5 text-left">
+            <div id="user-name-logout" className="flex flex-row items-start sm:items-center justify-between text-lg sm:text-xl gap-3 sm:gap-5 text-left">
                 <section className="flex items-center gap-2 sm:gap-3">
                     <i className="fa-solid fa-user text-xl sm:text-2xl"></i>
                     <h1 id="name" className="text-base sm:text-lg md:text-xl truncate">{userData.user}</h1>
                 </section>
-                <button id="logout-btn" className="text-right p-2 sm:p-2 w-full sm:w-[80px] text-sm sm:text-base rounded-lg bg-red-600 hover:bg-red-800 transition-colors duration-300 cursor-pointer font-semibold text-white"
+                <button id="logout-btn" className="text-right p-2 sm:p-2 w-fit sm:w-[80px] text-sm sm:text-base rounded-lg bg-red-600 hover:bg-red-800 transition-colors duration-300 cursor-pointer font-semibold text-white"
                 onClick={logout}
                 >
                     Logout
