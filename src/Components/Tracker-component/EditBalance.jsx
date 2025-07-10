@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useAlert } from "../AlertProvider";
 
 export function EditBalance({userData, setUserData}) {
     const [showForm, setShowForm] = useState("");
     const [addBal, setAddBal] = useState("");
     const [editBal, setEditBal] = useState("");
+    const { showAlert } = useAlert();
     
       const addingBalance = (event) =>{
         event.preventDefault();
@@ -15,9 +17,9 @@ export function EditBalance({userData, setUserData}) {
             }
             setUserData(update);
             setAddBal("");
-            alert("amount added");
+            showAlert("amount added");
         } else {
-            alert("Enter valid amount");
+            showAlert("Enter valid amount");
         }
     }
     
@@ -31,9 +33,9 @@ export function EditBalance({userData, setUserData}) {
             }
             setUserData(update);
             setEditBal("");
-            alert("amount Edited");
+            showAlert("amount Edited");
         } else {
-            alert("Enter valid amount");
+            showAlert("Enter valid amount");
         }
     }
 
